@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "fd94c1aa-13c2-4034-a94d-de9aae0ee9e1",
+		"name": "test_chatapp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27232199",
+		"_collection_link": "https://universal-eclipse-438234.postman.co/workspace/Team-Workspace~22ead5ee-f22d-41bc-8a47-5a87fa15f5a8/collection/27232199-fd94c1aa-13c2-4034-a94d-de9aae0ee9e1?action=share&source=collection_link&creator=27232199"
+	},
+	"item": [
+		{
+			"name": "tokens",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Разбираем ответ сервера",
+							"var responseData = JSON.parse(responseBody);",
+							"",
+							"// Проверяем, успешен ли запрос",
+							"if (responseData.success === true) {",
+							"    // Сохраняем токены в переменные коллекции",
+							"    pm.collectionVariables.set(\"accessToken\", responseData.data.accessToken);",
+							"    pm.collectionVariables.set(\"refreshToken\", responseData.data.refreshToken);",
+							"    pm.collectionVariables.set(\"cabinetUserId\", responseData.data.cabinetUserId);",
+							"    ",
+							"    console.log(\"Токены сохранены в переменные коллекции.\");",
+							"} else {",
+							"    console.error(\"Запрос не был успешным.\");",
+							"}",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"enis.panova@yandex.ru\",\n    \"password\": \"8cc20fcdd2069b3ec5ca79588a282ff6\",\n    \"appId\": \"app_40159_2\"\n}"
+				},
+				"url": {
+					"raw": "https://api.chatapp.online/v1/tokens",
+					"protocol": "https",
+					"host": [
+						"api",
+						"chatapp",
+						"online"
+					],
+					"path": [
+						"v1",
+						"tokens"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "message by whatsApp ",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{accessToken}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "instanceId",
+						"value": "5503911386",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"text\": \"Должно быть отключено\",\n    \"firstName\": \"Лариса\",\n    \"lastName\": \"Иванова\",\n    \"tracking\": \"qui\"\n}\n\n\n\n\n\n\n"
+				},
+				"url": {
+					"raw": "https://api.chatapp.online/v1/licenses/45041/messengers/grWhatsApp/chats/6797895995@c.us/messages/text",
+					"protocol": "https",
+					"host": [
+						"api",
+						"chatapp",
+						"online"
+					],
+					"path": [
+						"v1",
+						"licenses",
+						"45041",
+						"messengers",
+						"grWhatsApp",
+						"chats",
+						"6797895995@c.us",
+						"messages",
+						"text"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "accessToken",
+			"value": "562f9b3f330b90c7cc1e664fc7f22c3b1543e41f14f6fe3b45d89a2f6e43c7ca"
+		},
+		{
+			"key": "refreshToken",
+			"value": "e67b1763390636ecfecab1dd983c640d196209c9ae47bd80252f4817354c5e27"
+		},
+		{
+			"key": "cabinetUserId",
+			"value": "40159"
+		}
+	]
+}
