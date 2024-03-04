@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест для chatapp - Страница 2</title>
+    <!-- Добавьте любые другие метатеги и стили, если необходимо -->
+</head>
+
+<body>
+
+    <header>
+        <h1>Вторая страница Теста для chatapp!</h1>
+        <p>Дополнительное содержимое второй страницы.</p>
+    </header>
+
+    <main>
+        <a href="index.html">Вернуться на первую страницу</a>
+    </main>
+
+    <footer>
+        <!-- Оригинальный скрипт -->
+        <script defer>
+            (function (window, document, widgetScriptUrl, mainScriptUrl) {
+                var scriptElement = document.createElement('script');
+                scriptElement.defer = true;
+                scriptElement.onload = function () {
+                    var secondaryScript = document.createElement('script');
+                    secondaryScript.defer = true;
+                    secondaryScript.src = mainScriptUrl + '?' + (Date.now() / 60000 | 0);
+                    var head = document.getElementsByTagName('script')[0];
+                    head.parentNode.insertBefore(secondaryScript, head);
+                };
+                scriptElement.src = widgetScriptUrl + '?' + (Date.now() / 60000 | 0);
+                var head = document.getElementsByTagName('script')[0];
+                head.parentNode.insertBefore(scriptElement, head);
+            })(window, document,
+                "https://s3.wasabisys.com/cabinet.chatapp.online/widgetsFiles/40159/2024/03/01/8f6611d0-4583-4401-a03d-0d01491d689b.js",
+                'https://s3.wasabisys.com/cabinet.chatapp.online/external/widget/v3/index.js');
+        </script>
+        
+
+        <!-- Второй скрипт для второй страницы -->
+        <script>
+            window.addEventListener("load", () => {
+                (function (w, d, j) {
+                    var s = d.createElement('script');
+                    s.defer = true;
+                    s.src = j + '?' + (Date.now() / 60000 | 0);
+                    s.id = 'c805f8e0-4c40-464d-8228-f327ecd1d0d0';
+                    var h = d.getElementsByTagName('script')[0];
+                    h.parentNode.insertBefore(s, h);
+                })(window, document, 'https://s3.wasabisys.com/cabinet.chatapp.online/external/widgetLink/v1/index.js')
+            })
+        </script>
+    </footer>
+
+</body>
+
+</html>
